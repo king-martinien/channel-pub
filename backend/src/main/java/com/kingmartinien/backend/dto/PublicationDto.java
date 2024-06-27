@@ -2,7 +2,8 @@ package com.kingmartinien.backend.dto;
 
 import lombok.*;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -17,8 +18,8 @@ public class PublicationDto {
 
     private String content;
 
-    private List<ExternalLinkDto> externalLinks;
+    private Set<ExternalLinkDto> externalLinks = new HashSet<>();
 
-    private List<AttachmentDto> attachments;
+    private Set<AttachmentDto> attachments = new HashSet<>();
 
 }

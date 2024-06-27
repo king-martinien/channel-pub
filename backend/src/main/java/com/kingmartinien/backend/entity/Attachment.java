@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "T_ATTCHMENTS")
+@Table(name = "T_ATTACHMENTS")
 @EntityListeners(AuditingEntityListener.class)
 public class Attachment {
 
