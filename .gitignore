@@ -1,0 +1,20 @@
+.idea
+# Ignore the Maven build directory
+backend/target/
+
+# Ignore IDE specific files
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Ignore Eclipse project specific files
+.project
+.classpath
+.settings/
+
+# Ignore MacOS specific files
+.DS_Store
+
+# Ignore Flutter build directory
+frontend/build/
