@@ -9,8 +9,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -33,11 +32,11 @@ public class Publication {
     @Column(name = "content", columnDefinition = "TEXT")
     private String content;
 
-    @OneToMany(mappedBy = "publication", cascade = CascadeType.ALL)
-    private Set<ExternalLink> externalLinks = new HashSet<>();
+    @OneToMany(mappedBy = "publication", fetch = FetchType.EAGER)
+    private List<ExternalLink> externalLinks;
 
-    @OneToMany(mappedBy = "publication", cascade = CascadeType.ALL)
-    private Set<Attachment> attachments = new HashSet<>();
+    @OneToMany(mappedBy = "publication", fetch = FetchType.EAGER)
+    private List<Attachment> attachments;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "channel_id_fk", nullable = false)

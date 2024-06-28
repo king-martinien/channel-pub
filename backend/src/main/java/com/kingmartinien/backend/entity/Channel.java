@@ -9,8 +9,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -31,7 +30,7 @@ public class Channel {
     private String name;
 
     @OneToMany(mappedBy = "channel", cascade = CascadeType.ALL)
-    private Set<Publication> publications = new HashSet<>();
+    private List<Publication> publications;
 
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
