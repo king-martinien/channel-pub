@@ -6,7 +6,6 @@ import com.kingmartinien.backend.service.PublicationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -28,18 +27,6 @@ public class PublicationController {
     @ResponseStatus(HttpStatus.OK)
     public PublicationDto getPublicationById(@PathVariable Long id) {
         return this.publicationMapper.toDto(this.publicationService.getPublicationById(id));
-    }
-
-    @PostMapping("{channelId}")
-    @ResponseStatus(HttpStatus.CREATED)
-    public PublicationDto createPublication(
-            @PathVariable Long channelId,
-            @RequestPart("publication") PublicationDto publicationDto,
-            @RequestPart("file") MultipartFile file) {
-        return this.publicationMapper.toDto(
-                this.publicationService.createPublication(channelId,
-                        this.publicationMapper.toEntity(publicationDto), file)
-        );
     }
 
     @DeleteMapping("{id}")

@@ -18,3 +18,4 @@ backend/target/
 
 # Ignore Flutter build directory
 frontend/build/
+/backend/src/main/resources/service-account.json

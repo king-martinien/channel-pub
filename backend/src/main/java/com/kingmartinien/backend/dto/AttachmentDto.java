@@ -15,6 +15,6 @@ public class AttachmentDto {
 
     private String fileType;
 
-    private String fileUrl;
+    private String blobId;
 
 }

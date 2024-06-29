@@ -29,7 +29,7 @@ public class Channel {
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "channel", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "channel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Publication> publications;
 
     @CreatedDate

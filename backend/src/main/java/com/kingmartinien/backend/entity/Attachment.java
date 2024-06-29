@@ -31,8 +31,8 @@ public class Attachment {
     @Column(name = "file_type")
     private String fileType;
 
-    @Column(name = "file_url")
-    private String fileUrl;
+    @Column(name = "blob_id")
+    private String blobId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "publication_id_fk")
