@@ -13,4 +13,6 @@ public class ChannelDto {
 
     private String name;
 
+    private String description;
+
 }
