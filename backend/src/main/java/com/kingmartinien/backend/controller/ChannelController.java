@@ -5,6 +5,7 @@ import com.kingmartinien.backend.dto.PublicationDto;
 import com.kingmartinien.backend.mapper.ChannelMapper;
 import com.kingmartinien.backend.mapper.PublicationMapper;
 import com.kingmartinien.backend.service.ChannelService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -41,7 +42,7 @@ public class ChannelController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ChannelDto createChannel(@RequestBody ChannelDto channelDto) {
+    public ChannelDto createChannel(@RequestBody @Valid ChannelDto channelDto) {
         return this.channelMapper.toDto(this.channelService.createChannel(this.channelMapper.toEntity(channelDto)));
     }
 
@@ -49,7 +50,7 @@ public class ChannelController {
     @ResponseStatus(HttpStatus.CREATED)
     public PublicationDto createChannelPublication(
             @PathVariable Long id,
-            @RequestPart("publication") PublicationDto publicationDto,
+            @RequestPart("publication") @Valid PublicationDto publicationDto,
             @RequestPart(value = "files", required = false) List<MultipartFile> files) {
         return this.publicationMapper.toDto(
                 this.channelService.createChannelPublication(
@@ -58,7 +59,7 @@ public class ChannelController {
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ChannelDto updateChannel(@PathVariable Long id, @RequestBody ChannelDto channelDto) {
+    public ChannelDto updateChannel(@PathVariable Long id, @RequestBody @Valid ChannelDto channelDto) {
         return this.channelMapper.toDto(this.channelService.updateChannel(id, this.channelMapper.toEntity(channelDto)));
     }
 
